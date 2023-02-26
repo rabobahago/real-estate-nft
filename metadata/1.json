@@ -1,0 +1,33 @@
+{
+  "name": "Luxury Abuja Penthouse",
+  "address": "Suite 300 Ahmadu Bello Street, Abuja",
+  "description": "Luxury Penthouse located in the heart of Abuja",
+  "image": "https://ipfs.io/ipfs/QmQUozrHLAusXDxrvsESJ3PYB3rUeUuBAvVWw6nop2uu7c/1.png",
+  "id": "1",
+  "attributes": [
+    {
+      "trait_type": "Purchase Price",
+      "value": 20
+    },
+    {
+      "trait_type": "Type of Residence",
+      "value": "Condo"
+    },
+    {
+      "trait_type": "Bed Rooms",
+      "value": 2
+    },
+    {
+      "trait_type": "Bathrooms",
+      "value": 3
+    },
+    {
+      "trait_type": "Square Feet",
+      "value": 2200
+    },
+    {
+      "trait_type": "Year Built",
+      "value": 2013
+    }
+  ]
+}
