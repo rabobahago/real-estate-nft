@@ -8,6 +8,7 @@ const tokens = (n) => {
 };
 
 describe("Escrow", () => {
+  //declare variables
   let buyer, seller, inspector, lender;
   let realEstate, escrow;
   beforeEach(async () => {
@@ -18,13 +19,15 @@ describe("Escrow", () => {
     realEstate = await RealEstate.deploy();
 
     //mint
-    //note we are minting for seller account in this case
-    const transaction = await realEstate
-      .connect(seller)
-      .mint(
-        'https://ipfs.io/ipfs/QmUsuRJyRUmeHzZxes5FRMkc4mjx35HbaTzHzzWoiRdT5G"'
-      );
+    //note we are minting for the seller account in this case
+    //that is why we have realEstate.connect(seller)
+    let transaction = await realEstate.connect(seller).mint(
+      // token URI from IPSF
+      'https://ipfs.io/ipfs/QmUsuRJyRUmeHzZxes5FRMkc4mjx35HbaTzHzzWoiRdT5G"'
+    );
+    //await a block
     await transaction.wait();
+    //deploy Escrow contract
     const Escrow = await ethers.getContractFactory("Escrow");
     escrow = await Escrow.deploy(
       realEstate.address,
@@ -32,7 +35,14 @@ describe("Escrow", () => {
       inspector.address,
       lender.address
     );
+    //approve function call to approve ownership
+    transaction = await realEstate.connect(seller).approve(escrow.address, 1);
+    await transaction.wait();
+    //list property
+    transaction = await escrow.connect(seller).list(1);
+    await transaction.wait();
   });
+
   describe("deployment", () => {
     it("Returns nft address", async () => {
       const result = await escrow.nftAddress();
@@ -52,5 +62,9 @@ describe("Escrow", () => {
     });
   });
 
-  it("saves the addresses", async () => {});
+  describe("Listing", () => {
+    it("Updates Ownership", async () => {
+      expect(await realEstate.ownerOf(1)).to.be.equal(escrow.address);
+    });
+  });
 });
