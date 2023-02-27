@@ -48,8 +48,8 @@ contract Escrow {
     //listing a properties
     function list(
         uint _nftID,
-        uint256 _purchasePrice,
         address _buyer,
+        uint256 _purchasePrice,
         uint256 _escrowAmount
     ) public {
         //ERC721(nftAddress) get the copy of the RealEstate NFT.

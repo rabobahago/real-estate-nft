@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\Rabo Yusuf\\Desktop\\real-estate-nft\\contracts\\Escrow.sol": {
-      "lastModificationDate": 1677481489399,
-      "contentHash": "dce6034a67361bf336b112bc4cc55a79",
+      "lastModificationDate": 1677489413754,
+      "contentHash": "4496590a4a20c966716f5e5316942c8d",
       "sourceName": "contracts/Escrow.sol",
       "solcConfig": {
         "version": "0.8.17",
