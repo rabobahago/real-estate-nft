@@ -22,13 +22,25 @@ contract Escrow {
     address public lender;
     //inspector address state variable
     address public inspector;
-
+    modifier onlyBuyer(uint256 _nftID) {
+        require(msg.sender == buyer[_nftID], "only buyer can call this method");
+        _;
+    }
+    modifier onlySeller() {
+        require(msg.sender == seller, "Only seller can call this method");
+        _;
+    }
+    modifier onlyInspector() {
+        require(msg.sender == inspector, "Only inspector can call this method");
+        _;
+    }
     //list state variables
     mapping(uint256 => bool) public isListed;
     //purchase price
     mapping(uint256 => uint256) public purchasePrice;
     mapping(uint256 => uint256) public escrowAmount;
     mapping(uint256 => address) public buyer;
+    mapping(uint256 => bool) public inspectionPassed;
 
     //set addresses we pass to the constructor to the addresses in the state
     //variables
@@ -51,7 +63,7 @@ contract Escrow {
         address _buyer,
         uint256 _purchasePrice,
         uint256 _escrowAmount
-    ) public {
+    ) public payable onlySeller {
         //ERC721(nftAddress) get the copy of the RealEstate NFT.
         //ERC721 standard interface above export this transferFrom method
         //I pass in the contract address, then get the transfer from method
@@ -67,5 +79,25 @@ contract Escrow {
         buyer[_nftID] = _buyer;
         //escrow Amount
         escrowAmount[_nftID] = _escrowAmount;
+    }
+
+    //put under contract (only buyer - payable escrow)
+    function depositEarnest(uint256 _nftID) public payable onlyBuyer(_nftID) {
+        require(msg.value >= escrowAmount[_nftID]);
+    }
+
+    function updateInspectionStatus(uint256 _nftID, bool _passed)
+        public
+        onlyInspector
+    {
+        inspectionPassed[_nftID] = _passed;
+    }
+
+    //receive function that allow this contract to receive ether
+    receive() external payable {}
+
+    //get balance of the current contract
+    function getBalance() public view returns (uint256) {
+        return address(this).balance;
     }
 }
