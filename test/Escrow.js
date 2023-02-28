@@ -23,7 +23,7 @@ describe("Escrow", () => {
     //that is why we have realEstate.connect(seller)
     let transaction = await realEstate.connect(seller).mint(
       // token URI from IPSF
-      'https://ipfs.io/ipfs/QmUsuRJyRUmeHzZxes5FRMkc4mjx35HbaTzHzzWoiRdT5G"'
+      "https://ipfs.io/ipfs/QmQVcpsjrA6cr1iJjZAodYwmPekYgbnXGo4DFubJiLc2EB"
     );
     //await a block
     await transaction.wait();
