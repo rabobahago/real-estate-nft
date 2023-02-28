@@ -9,12 +9,6 @@ const Navigation = ({
   deactivateWeb3,
   isWeb3EnableLoading,
 }) => {
-  // const connectHandler = async () => {
-  //   const accounts = await window.ethereum.request({
-  //     method: "eth_requestAccounts",
-  //   });
-  //   setAccount(accounts[0]);
-  // };
   useEffect(() => {
     if (isWeb3Enabled) return;
     if (typeof window !== "undefined") {
@@ -22,7 +16,7 @@ const Navigation = ({
         enableWeb3();
       }
     }
-  }, []);
+  }, [isWeb3Enabled, enableWeb3]);
   useEffect(() => {
     Moralis.onAccountChanged((account) => {
       console.log(`Account changed to ${account}`);
@@ -51,11 +45,6 @@ const Navigation = ({
         <img src={logo} alt="Logo" />
         <h1>Real Estate</h1>
       </div>
-      {/* {account ? (
-        <button type="button" className="nav__connect">
-          {account.slice(0, 6) + "..." + account.slice(38, 42)}
-        </button>
-      ) : ( */}
 
       {account ? (
         <button type="button" className="nav__connect">
@@ -72,7 +61,6 @@ const Navigation = ({
               window.localStorage.setItem("connected", "injected");
             }
           }}
-          // disabled={isWeb3EnableLoading}
         >
           Connect
         </button>
