@@ -15,7 +15,14 @@ import config from "./config.json";
 import { useMoralis } from "react-moralis";
 
 function App() {
-  const { enableWeb3, account, isWeb3Enabled } = useMoralis();
+  const {
+    enableWeb3,
+    account,
+    isWeb3Enabled,
+    Moralis,
+    deactivateWeb3,
+    isWeb3EnableLoading,
+  } = useMoralis();
   // const [account, setAccount] = useState(null);
   // const localBlockchainData = async () => {
   //   const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -34,6 +41,9 @@ function App() {
         enableWeb3={enableWeb3}
         account={account}
         isWeb3Enabled={isWeb3Enabled}
+        Moralis={Moralis}
+        deactivateWeb3={deactivateWeb3}
+        isWeb3EnableLoading={isWeb3EnableLoading}
       />
       <div className="cards__section">
         <h3>Welcome to Real Estate NFT</h3>
