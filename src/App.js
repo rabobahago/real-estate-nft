@@ -26,6 +26,8 @@ function App() {
   const [provider, setProvider] = useState(null);
   const [escrow, setEscrow] = useState(null);
   const [homes, setHomes] = useState([]);
+  const [home, setHome] = useState({});
+  const [toggle, setToggle] = useState(false);
   const loadBlockchainData = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     setProvider(provider);
@@ -44,7 +46,6 @@ function App() {
       homes.push(metadata);
     }
     setHomes(homes);
-    console.log(homes);
     const escrow = new ethers.Contract(
       config[network.chainId].escrow.address,
       Escrow,
@@ -55,6 +56,10 @@ function App() {
   useEffect(() => {
     loadBlockchainData();
   }, [enableWeb3, isWeb3Enabled]);
+  const togglePop = (home) => {
+    setHome(home);
+    toggle ? setToggle(false) : setToggle(true);
+  };
   return (
     <div>
       <Navigation
@@ -72,7 +77,7 @@ function App() {
         <div className="cards">
           {homes.map((home, index) => {
             return (
-              <div className="card" key={index}>
+              <div className="card" key={index} onClick={() => togglePop(home)}>
                 <div className="card__image">
                   <img alt="Home" src={home.image} />
                 </div>
@@ -90,6 +95,15 @@ function App() {
           })}
         </div>
       </div>
+      {toggle && (
+        <Home
+          home={home}
+          account={account}
+          provider={provider}
+          escrow={escrow}
+          togglePop={togglePop}
+        />
+      )}
     </div>
   );
 }
