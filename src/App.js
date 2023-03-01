@@ -29,6 +29,7 @@ function App() {
   const [homes, setHomes] = useState([]);
   const [home, setHome] = useState({});
   const [toggle, setToggle] = useState(false);
+  const [search, setSearch] = useState("");
   const loadBlockchainData = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     setProvider(provider);
@@ -69,6 +70,9 @@ function App() {
     const account = ethers.utils.getAddress(accounts[0]);
     setAccount(account);
   });
+  const filteredHomes = homes.filter((home) => {
+    return home.name.toLowerCase().includes(search.toLocaleLowerCase());
+  });
 
   return (
     <div>
@@ -80,12 +84,12 @@ function App() {
         deactivateWeb3={deactivateWeb3}
         isWeb3EnableLoading={isWeb3EnableLoading}
       />
-      <Search />
+      <Search search={search} setSearch={setSearch} />
       <div className="cards__section">
         <h3>Home For You</h3>
         <hr />
         <div className="cards">
-          {homes.map((home, index) => {
+          {filteredHomes.map((home, index) => {
             return (
               <div className="card" key={index} onClick={() => togglePop(home)}>
                 <div className="card__image">
@@ -120,3 +124,9 @@ function App() {
 
 export default App;
 //npx hardhat run scripts/deploy.js --network localhost
+
+// MetaMask - RPC Error: [ethjs-query] while formatting outputs from RPC
+//'{"value":{"code":-32603,"data":{"code":-32000,"message":"Nonce too high.
+//Expected nonce to be 0 but got 1. Note that transactions can't be queued when
+//automining.","data":{"message":"Nonce too high. Expected nonce to be 0 but got 1.
+//Note that transactions can't be queued when automining."}}}}'
