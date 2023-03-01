@@ -23,6 +23,7 @@ function App() {
     deactivateWeb3,
     isWeb3EnableLoading,
   } = useMoralis();
+  const [acc, setAccount] = useState(account);
   const [provider, setProvider] = useState(null);
   const [escrow, setEscrow] = useState(null);
   const [homes, setHomes] = useState([]);
@@ -60,6 +61,15 @@ function App() {
     setHome(home);
     toggle ? setToggle(false) : setToggle(true);
   };
+
+  window.ethereum.on("accountsChanged", async () => {
+    const accounts = await window.ethereum.request({
+      method: "eth_requestAccounts",
+    });
+    const account = ethers.utils.getAddress(accounts[0]);
+    setAccount(account);
+  });
+
   return (
     <div>
       <Navigation
@@ -98,8 +108,8 @@ function App() {
       {toggle && (
         <Home
           home={home}
-          account={account}
           provider={provider}
+          account={acc}
           escrow={escrow}
           togglePop={togglePop}
         />
@@ -109,3 +119,4 @@ function App() {
 }
 
 export default App;
+//npx hardhat run scripts/deploy.js --network localhost
