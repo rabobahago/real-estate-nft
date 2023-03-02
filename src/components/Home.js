@@ -1,3 +1,4 @@
+import { ethers } from "ethers";
 import { useEffect, useState } from "react";
 
 import close from "../assets/close.svg";
@@ -118,7 +119,7 @@ const Home = ({ home, provider, account, escrow, togglePop }) => {
 
     setHasSold(true);
   };
-  console.log(account);
+
   useEffect(() => {
     fetchDetails();
     fetchOwner();
