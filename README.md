@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# NextJS Smartcontract Lottery (Raffle)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![App](images/readme-app.png)
 
-## Available Scripts
+[Example App here!](https://fancy-dream-3458.on.fleek.co/)
+[Example App on IPFS here!](ipfs://Qme4KacFx21y6pYuTC6veAU2usryXB3fNWqLkX3a2hMvDe)
 
-In the project directory, you can run:
+Built with ❤️ using:
+ReactJS
+Solidity
+Chainlink
+Moralis
+web3uikit
+Ethers
+Hardhat
+IPFS
 
-### `npm start`
+- [NextJS Smartcontract Lottery (Raffle)](#nextjs-smartcontract-lottery-raffle)
+- [Getting Started](#getting-started)
+  - [Requirements](#requirements)
+  - [Quickstart](#quickstart)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Requirements
 
-### `npm test`
+- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+  - You'll know you did it right if you can run `git --version` and you see a response like `git version x.x.x`
+- [Nodejs](https://nodejs.org/en/)
+  - You'll know you've installed nodejs right if you can run:
+    - `node --version` and get an ouput like: `vx.x.x`
+- [Yarn](https://yarnpkg.com/getting-started/install) instead of `npm`
+  - You'll know you've installed yarn right if you can run: - `yarn --version` and get an output like: `x.x.x` - You might need to [install it with `npm`](https://classic.yarnpkg.com/lang/en/docs/install/) or `corepack`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-[metamask] metamask extension install on your chrome browser
 
-### `npm run build`
+## Quickstart
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+1. Clone/Download the Repository
+git clone https://github.com/rabobahago/real-estate-nft.git
+cd real-estate-nft
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install Dependencies:
+$ npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Run tests
+$ npx hardhat test
 
-### `npm run eject`
+4. Start Hardhat node
+$ npx hardhat node
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. Run deployment script
+In a separate terminal execute: $ npx hardhat run ./scripts/deploy.js --network localhost
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+7. Start frontend
+$ npm run start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Add hardhat network to your metamask/wallet
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Get the RPC_URL of your hh node (usually `http://127.0.0.1:8545/`)
+- Go to your wallet and add a new network. [See instructions here.](https://metamask.zendesk.com/hc/en-us/articles/360043227612-How-to-add-a-custom-network-RPC)
+  - Network Name: Hardhat-Localhost
+  - New RPC URL: http://127.0.0.1:8545/
+  - Chain ID: 31337
+  - Currency Symbol: ETH (or GO)
+  - Block Explorer URL: None
