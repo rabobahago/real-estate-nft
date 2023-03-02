@@ -1,9 +1,7 @@
-# NextJS Smartcontract Lottery (Raffle)
+# Real-Estate-NFT
 
-![App](images/readme-app.png)
-
-[Example App here!](https://fancy-dream-3458.on.fleek.co/)
-[Example App on IPFS here!](ipfs://Qme4KacFx21y6pYuTC6veAU2usryXB3fNWqLkX3a2hMvDe)
+![App](</public/Screenshot (211).png)
+[Example App on IPFS here!](https://ipfs.io/ipfs/QmQVcpsjrA6cr1iJjZAodYwmPekYgbnXGo4DFubJiLc2EB)
 
 Built with ❤️ using:
 ReactJS
@@ -15,7 +13,7 @@ Ethers
 Hardhat
 IPFS
 
-- [NextJS Smartcontract Lottery (Raffle)](#nextjs-smartcontract-lottery-raffle)
+- [Real-Estate-NFT](#real-estate-nft)
 - [Getting Started](#getting-started)
   - [Requirements](#requirements)
   - [Quickstart](#quickstart)
