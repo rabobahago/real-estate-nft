@@ -31,8 +31,7 @@ IPFS
     - `node --version` and get an ouput like: `vx.x.x`
 - [Yarn](https://yarnpkg.com/getting-started/install) instead of `npm`
   - You'll know you've installed yarn right if you can run: - `yarn --version` and get an output like: `x.x.x` - You might need to [install it with `npm`](https://classic.yarnpkg.com/lang/en/docs/install/) or `corepack`
-
--[metamask] metamask extension install on your chrome browser
+- [metamask](https://metamask.io/download/)metamask extension install on your chrome browser
 
 ## Quickstart
 
@@ -59,8 +58,12 @@ $ npm run start
 
 1. Add hardhat network to your metamask/wallet
 
-- Get the RPC_URL of your hh node (usually `http://127.0.0.1:8545/`)
-- Go to your wallet and add a new network. [See instructions here.](https://metamask.zendesk.com/hc/en-us/articles/360043227612-How-to-add-a-custom-network-RPC)
+- After you run npx hardhat node: copy the first four accounts private keys and import them into your metamask or wallet
+- You can name them anything you want but preferably you name them as follow:
+  - Hardhat #0 represent the buyer account on your metamask or wallet
+  - Hardhat #1 represent the seller account on your metamask or wallet
+  - Hardhat #2 represent the inspector account on your metamask or wallet
+  - hardhat #3 represent the lender account on your metamask or wallet
   - Network Name: Hardhat-Localhost
   - New RPC URL: http://127.0.0.1:8545/
   - Chain ID: 31337
