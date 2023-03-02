@@ -1,6 +1,6 @@
 # Real-Estate-NFT
 
-![App](</public/Screenshot (211).png)
+![App](/public/photo.png)
 [Example App on IPFS here!](https://ipfs.io/ipfs/QmQVcpsjrA6cr1iJjZAodYwmPekYgbnXGo4DFubJiLc2EB)
 
 Built with ❤️ using:
@@ -63,7 +63,30 @@ $ npm run start
   - Hardhat #2 represent the inspector account on your metamask or wallet
   - hardhat #3 represent the lender account on your metamask or wallet
   - Network Name: Hardhat-Localhost
-  - New RPC URL: http://127.0.0.1:8545/
-  - Chain ID: 31337
-  - Currency Symbol: ETH (or GO)
-  - Block Explorer URL: None
+
+1. How to perform a transaction on a local machine
+
+- After you run npm run start, the application will start on your local machine at a particular port
+- Go to the application on your browser, click on the connect button at the right top corner of the page
+- It will ask you to connect to your wallet, switch your current wallet account to hardhat #0 as explained above
+- This account represent the buyer account on your metamask or wallet
+- After you switched your wallet account to hardhat #0, go back to your application and click any property you want to buy
+- A UI will pop, which contains the property details and button that say buy, click on the buy button, it take you back your wallet in other to make transaction as a buyer.
+- click confirm if Ok with fee of transaction
+- In case you have error while performing the transaction such as: // MetaMask - RPC Error: [ethjs-query] while formatting outputs from RPC
+- Reset your wallet and repeat the transaction
+- If you buy transaction is confirmed, metamask will pop the approve sale UI, please press confirm button to continue with your transaction
+- You see approval sale and contract interaction success in your wallet
+- You have to switch to your next wallet or metamask account which is hardhat #2 representing inspector account in the transaction
+- Then the Buy button on your UI application will automatically switch to approve & inspection button
+- Press the button to continue with your transaction in metamask
+- If the transaction is Ok for you, press the confirm button to continue with your transaction
+- You have to switch to your next wallet or metamask account which is hardhat #3 representing lender account in the transaction
+- Then the approve inspection button on your UI application will automatically switch to approve & lend button
+- Press the button to continue with your transaction in metamask
+- If the transaction is Ok for you, press the confirm button to continue with your transaction
+- You have to switch to your next wallet or metamask account which is hardhat #1 representing seller account in the transaction
+- Then the approve & lend button on your UI application will automatically switch to approve & sell button
+- Press the button to continue with your transaction in metamask
+- If the transaction is Ok for you, press the confirm button to continue with your transaction
+- BOOM the owner of the property have been transfer to you as confirmed by the UI
